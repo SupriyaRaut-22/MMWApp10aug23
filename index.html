@@ -1,0 +1,36 @@
+<html>
+	<head>
+	<title>Motivational Msg Walla by SP</title>
+	<style>
+		*{font-size:130%}
+		h1,h2{background-color:black; color:white;
+			width:50%; border-radius:30px;}
+		body{background-color: #adafba;}
+	</style>
+	<script>
+	function getmsg()
+	{	
+		event.preventDefault();
+		let ans=document.getElementById("ans");
+		let url="https://api.quotable.io/random";
+		fetch(url)
+		.then(res=>res.json())
+		.then(data=>ans.innerHTML=data.content + " " + data.author)
+		.catch(err=>ans.innerHTML="issue"+err);
+
+		
+	}
+
+	</script>
+	</head>
+
+	<body>
+	<center>
+		<h1>Motivational Msg Wala</h1>
+		<form onsubmit="getmsg()">
+			<input type="submit" name="Get Msg" />
+		</form>
+		<h2 id="ans"></h2>
+	</center>
+	</body>
+</html>
